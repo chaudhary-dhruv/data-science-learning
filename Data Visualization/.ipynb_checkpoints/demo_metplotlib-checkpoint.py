@@ -1,11 +1,23 @@
+
+
 import matplotlib.pyplot as plt
 
-kohli = [0, 0, 500, 800, 1100, 1300, 1500, 1800, 1900, 2100]
-sehwag = [0, 300, 800, 1200, 1500, 1700, 1600, 1400, 1000, 0]
+days = [1, 2, 3, 4, 5, 6, 7]  # Days of the week
+studying = [3, 4, 3, 5, 4, 3, 4]
+playing = [2, 2, 1, 1, 2, 3, 2]
+watching_tv = [2, 1, 2, 2, 1, 1, 1]
+sleeping = [5, 5, 6, 5, 6, 5, 5]
 
-plt.plot(years, kohli, linewidth=3, label="Kohli")
-plt.plot(years, sehwag, linewidth=2, label="Sehwag")
-plt.legend()
-plt.grid(True)
-plt.tight_layout()
+labels = ['Studying', 'Playing', 'Watching TV', 'Sleeping']
+colors = ['skyblue', 'lightgreen', 'gold', 'lightcoral']
+
+plt.figure(figsize=(10,6))
+plt.stackplot(days, studying, playing, watching_tv, sleeping,
+              labels=labels, colors=colors, alpha=0.8)
+
+plt.legend(loc='upper left')  # Location of the legend
+plt.title('Weekly Activity Tracker')
+plt.xlabel('Day')
+plt.ylabel('Hours')
+#plt.grid(True)
 plt.show()
